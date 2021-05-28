@@ -1,0 +1,27 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: estudioplatzi:F8veibqm3pJGXY20X9a2dOrV
+  email:
+    recipients:
+      - castillovictor2461@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: cacd93ae-c486-4236-9d65-891e1aa78142
+  app: vcbobby-platzi-store
+  on:
+    repo: vcbobby/platzi-store-backend
